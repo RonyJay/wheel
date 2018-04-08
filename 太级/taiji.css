@@ -1,0 +1,50 @@
+.taiji{
+	margin: auto;
+	height: 300px;
+	width: 0;
+	border-left: 150px solid #fff;
+	border-right: 150px solid #000;
+	border-radius: 50%;
+	box-shadow: 0 0 20px 0 #333;
+	position: relative;
+	margin-top: 50px;
+	}
+
+.yin{
+	 position: absolute;
+	 width:150px;  
+	 height:150px;  
+	 border-radius:100%;  
+	 margin-top: 150px;
+	 margin-left: -75px;
+	 background: black;
+}
+ .yin:after{
+	 position:absolute;
+	 content:" ";
+	 width:50px;
+	 height:50px;
+	 border-radius:100%;
+	 background:#fff;
+	 margin-top: 50px;
+	 margin-left: 50px;
+ }
+.yang{
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	border-radius: 100%;
+	margin-bottom: 150px;
+	margin-left: -75px;
+	background: white;
+}
+.yang:after{
+	position: absolute;
+	content: " ";
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	background: black;
+	margin-top: 50px;
+	margin-left: 50px;
+}
