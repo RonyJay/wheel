@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding:0;
+}
+#id{
+    
+}
+.row{
+    text-align: center;
+    margin-top:10px;
+   
+}
+.key{
+    border: solid red 1px;
+    border-collapse: collapse;
+    display: inline-block;
+    font-size: 2em;
+    height: 4em;
+    width: 4em;
+    margin-left: 10px;
+    position: relative;
+}
+kbd> button{
+    position: absolute;
+    right: 5px;
+    bottom: 1px;
+    display:none;
+}
+kbd:hover>button{
+    display: inline-block;    
+}
