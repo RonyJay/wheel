@@ -1,0 +1,11 @@
+myBookmarks第一次提交需要注意的地方：
+1.用JS循环创建html元素
+2.键盘事件的监听document.onkeypress = function (listener){}，全文档监听
+3.鼠标点击事件button.onclick =function(clickEdit){}，点击对应到相关的元素
+4.需要保存的内容存入localStorage
+    localStorage.setItem('mydic',JSON.stringify(website_hash))
+5.获取localStorage中的数据
+    var website_hash_LocalStorage=JSON.parse(localStorage.getItem("mydic") || 'null')
+    if(website_hash_LocalStorage){
+        website_hash=website_hash_LocalStorage
+    }
