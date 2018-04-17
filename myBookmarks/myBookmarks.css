@@ -2,23 +2,44 @@
     margin: 0;
     padding:0;
 }
-#id{
-    
+ body{
+    height: 100vh;
+    background:url(./wall.jpg) no-repeat;
+    background-size: 100%;
+} 
+main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .row{
     text-align: center;
-    margin-top:10px;
-   
+    margin-top:20px;
+    
 }
+.row:nth-child(1){
+    margin-top:20px;
+}
+
 .key{
-    border: solid red 1px;
+    border: solid #373737 1px;
     border-collapse: collapse;
     display: inline-block;
     font-size: 2em;
-    height: 4em;
-    width: 4em;
-    margin-left: 10px;
+    height: 3em;
+    width: 3em;
+    margin-left: 20px;
+    background:-webkit-gradient(linear,0% 0%, 0% 100%, from(#292929), to(#333333), color-stop(0.5,#111111));
+    color: rgb(197, 197, 197);
     position: relative;
+    border-radius: 14px;
+    box-shadow: 0 0 0 1px #1A1B1C, 0 0 0 2px #1F2020, 0 3px 0 2px #080808;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+ 
+    
 }
 kbd> button{
     position: absolute;
