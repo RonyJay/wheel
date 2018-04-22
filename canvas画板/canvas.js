@@ -9,56 +9,95 @@ listenMouse(canvas)
 var use_eraser = false;
 eraser.onclick = function () {
     use_eraser = true;
-    use_paint=false;
+    use_paint = false;
 }
 var use_paint = true;
 paint.onclick = function () {
     use_paint = true;
-    use_eraser=false;
+    use_eraser = false;
 }
 
 //监听鼠标事件
 function listenMouse(canvas) {
     var using = false
-    //按下鼠标
-    canvas.onmousedown = function (e) {
-        var x = e.clientX
-        var y = e.clientY
-        if (use_eraser) {
-            using = true;
-            ctx.clearRect(x - 10, y - 10, 20, 20);
-        } else if (use_paint){
-            using = true;
-            lastpoint = { "x": x, "y": y }
-        }else{
-            console.log("橡皮擦画笔都为false")
+    //特性检测
+    if (document.body.ontouchstart !== undefined) {
+        //触屏设备
+        canvas.ontouchstart=function(e){
+            var x = e.touches[0].clientX
+            var y = e.touches[0].clientY
+            if (use_eraser) {
+                using = true;
+                ctx.clearRect(x - 10, y - 10, 20, 20);
+            } else if (use_paint) {
+                using = true;
+                lastpoint = { "x": x, "y": y }
+            } else {
+                console.log("橡皮擦画笔都为false")
+            }
+        }
+        canvas.ontouchmove=function(e){
+            var x = e.touches[0].clientX
+            var y = e.touches[0].clientY
+            if (using) {
+                if (use_eraser) {
+                    ctx.clearRect(x - 10, y - 10, 20, 20);
+                } else {
+                    newpoint = { "x": x, "y": y }
+                    drawLine(lastpoint.x, lastpoint.y, newpoint.x, newpoint.y)
+                    lastpoint = newpoint;
+                }
+
+            }
+        }
+        canvas.ontouchend=function(){
+            using = false;
+        }
+        
+    } else {
+        //按下鼠标
+        canvas.onmousedown = function (e) {
+            var x = e.clientX
+            var y = e.clientY
+            if (use_eraser) {
+                using = true;
+                ctx.clearRect(x - 10, y - 10, 20, 20);
+            } else if (use_paint) {
+                using = true;
+                lastpoint = { "x": x, "y": y }
+            } else {
+                console.log("橡皮擦画笔都为false")
+            }
+
         }
 
+
+        //移动鼠标
+        canvas.onmousemove = function (e) {
+            var x = e.clientX
+            var y = e.clientY
+            if (using) {
+                if (use_eraser) {
+                    ctx.clearRect(x - 10, y - 10, 20, 20);
+                } else {
+                    newpoint = { "x": x, "y": y }
+                    drawLine(lastpoint.x, lastpoint.y, newpoint.x, newpoint.y)
+                    lastpoint = newpoint;
+                }
+
+            }
+        }
+
+
+
+        //松开鼠标
+        canvas.onmouseup = function () {
+            using = false;
+        }
+        //PC设备
     }
 
 
-//移动鼠标
-canvas.onmousemove = function (e) {
-    var x = e.clientX
-    var y = e.clientY
-    if (using) {
-        if (use_eraser) {
-            ctx.clearRect(x - 10, y - 10, 20, 20);
-        } else {
-            newpoint = { "x": x, "y": y }
-            drawLine(lastpoint.x, lastpoint.y, newpoint.x, newpoint.y)
-            lastpoint = newpoint;
-        }
-
-    }
-}
-
-
-
-//松开鼠标
-canvas.onmouseup = function () {
-    using = false;
-}
 }
 //画线
 function drawLine(x1, y1, x2, y2) {
