@@ -6,33 +6,59 @@ var ctx = canvas.getContext('2d');
 setCanvasSize()
 listenMouse(canvas)
 
+var use_eraser = false;
+eraser.onclick = function () {
+    use_eraser = true;
+    use_paint=false;
+}
+var use_paint = true;
+paint.onclick = function () {
+    use_paint = true;
+    use_eraser=false;
+}
 
 //监听鼠标事件
 function listenMouse(canvas) {
-    var draw_flag = false
+    var using = false
     //按下鼠标
     canvas.onmousedown = function (e) {
         var x = e.clientX
         var y = e.clientY
-        draw_flag = true;
-        lastpoint = { "x": x, "y": y }
+        if (use_eraser) {
+            using = true;
+            ctx.clearRect(x - 10, y - 10, 20, 20);
+        } else if (use_paint){
+            using = true;
+            lastpoint = { "x": x, "y": y }
+        }else{
+            console.log("橡皮擦画笔都为false")
+        }
+
     }
-    //移动鼠标
-    canvas.onmousemove = function (e) {
-        if (draw_flag) {
-            var x = e.clientX
-            var y = e.clientY
+
+
+//移动鼠标
+canvas.onmousemove = function (e) {
+    var x = e.clientX
+    var y = e.clientY
+    if (using) {
+        if (use_eraser) {
+            ctx.clearRect(x - 10, y - 10, 20, 20);
+        } else {
             newpoint = { "x": x, "y": y }
             drawLine(lastpoint.x, lastpoint.y, newpoint.x, newpoint.y)
             lastpoint = newpoint;
-        } else {
-
         }
+
     }
-    //松开鼠标
-    canvas.onmouseup = function (up) {
-        draw_flag = false;
-    }
+}
+
+
+
+//松开鼠标
+canvas.onmouseup = function () {
+    using = false;
+}
 }
 //画线
 function drawLine(x1, y1, x2, y2) {
@@ -51,3 +77,4 @@ function setCanvasSize() {
     canvas.width = pageWidth - 10
     canvas.height = pageHeight - 10
 }
+

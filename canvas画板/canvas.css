@@ -2,3 +2,8 @@
     padding: 0;
     margin: 0;
 }
+#action{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
