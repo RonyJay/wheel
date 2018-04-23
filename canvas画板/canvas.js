@@ -20,6 +20,9 @@ paint.onclick = function () {
     paint.classList.add('active')
     eraser.classList.remove('active')
 }
+Reset.onclick=function(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+}
 document.getElementsByClassName("red")[0].onclick = function () {
     ctx.lineWidth = 5
     ctx.strokeStyle = "red";
@@ -31,6 +34,10 @@ document.getElementsByClassName("green")[0].onclick = function () {
 document.getElementsByClassName("blue")[0].onclick = function () {
     ctx.lineWidth = 5
     ctx.strokeStyle = "blue";
+}
+document.getElementsByClassName("black")[0].onclick = function () {
+    ctx.lineWidth = 5
+    ctx.strokeStyle = "black";
 }
 //监听鼠标事件
 function listenMouse(canvas) {
@@ -118,7 +125,7 @@ function listenMouse(canvas) {
 function drawLine(x1, y1, x2, y2) {
     ctx.beginPath()
     ctx.moveTo(x1, y1)
-    
+    ctx.lineWidth = 5
     ctx.lineTo(x2, y2)
     ctx.stroke()
     ctx.closePath()
@@ -127,7 +134,7 @@ function drawLine(x1, y1, x2, y2) {
 function setCanvasSize() {
     var pageWidth = document.documentElement.clientWidth
     var pageHeight = document.documentElement.clientHeight
-    canvas.width = pageWidth - 10
-    canvas.height = pageHeight - 10
+    canvas.width = pageWidth 
+    canvas.height = pageHeight
 }
 
