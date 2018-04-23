@@ -2,8 +2,64 @@
     padding: 0;
     margin: 0;
 }
+body{
+    overflow: hidden;
+}
+li{
+    list-style-type:none;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
 #action{
     position: fixed;
     top: 10px;
     left: 10px;
+    padding: 10px;
+}
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+ .action svg {
+     width: 1.5em;
+     height: 1.5em;
+     transition: all 0.3s;
+     margin: 0 10px;
+    
+ }
+ .action svg:nth-child(2){
+    width: 1.8em;
+    height: 1.8em;
+ }
+ .action svg.active{
+     fill:red;
+     transform:scale(1.2); 
+ }
+ .color{
+    position: fixed;
+    top: 64px;
+    left:23px;
+ }
+ .color>li {
+     height: 20px;
+     width: 20px;
+     border-radius: 50%;
+     margin: 5px;
+     float: left;
+ }
+    
+.color> li.red{
+     background: red; 
+ }
+ 
+.color >li.green{ 
+    background: green;
+}
+.color> li.blue{ 
+    background: blue;
 }

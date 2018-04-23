@@ -10,13 +10,28 @@ var use_eraser = false;
 eraser.onclick = function () {
     use_eraser = true;
     use_paint = false;
+    eraser.classList.add('active')
+    paint.classList.remove('active')
 }
 var use_paint = true;
 paint.onclick = function () {
     use_paint = true;
     use_eraser = false;
+    paint.classList.add('active')
+    eraser.classList.remove('active')
 }
-
+document.getElementsByClassName("red")[0].onclick = function () {
+    ctx.lineWidth = 5
+    ctx.strokeStyle = "red";
+}
+document.getElementsByClassName("green")[0].onclick = function () {
+    ctx.lineWidth = 5
+    ctx.strokeStyle = "green";
+}
+document.getElementsByClassName("blue")[0].onclick = function () {
+    ctx.lineWidth = 5
+    ctx.strokeStyle = "blue";
+}
 //监听鼠标事件
 function listenMouse(canvas) {
     var using = false
@@ -102,9 +117,8 @@ function listenMouse(canvas) {
 //画线
 function drawLine(x1, y1, x2, y2) {
     ctx.beginPath()
-    ctx.strokeStyle = "red"
     ctx.moveTo(x1, y1)
-    ctx.lineWidth = 5
+    
     ctx.lineTo(x2, y2)
     ctx.stroke()
     ctx.closePath()
