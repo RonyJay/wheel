@@ -39,6 +39,14 @@ document.getElementsByClassName("black")[0].onclick = function () {
     ctx.lineWidth = 5
     ctx.strokeStyle = "black";
 }
+save.onclick=function(){
+    var save_url=canvas.toDataURL("image/png");
+    var a=document.createElement('a')
+    document.body.appendChild(a)
+    a.href=save_url
+    a.download="我的canvas作品"
+    a.click()
+}
 //监听鼠标事件
 function listenMouse(canvas) {
     var using = false
