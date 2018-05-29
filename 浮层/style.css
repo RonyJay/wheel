@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    margin: 20px;
+}
+
+.popover{
+    background-color: yellow;
+    border-radius: 3px;
+    border: red 1px solid;
+    position: absolute;
+    top: 0;
+    padding: 10px;
+    margin-left: 15px;
+    left: 100%;
+    display:none;
+}
