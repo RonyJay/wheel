@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+*{
+    box-sizing: border-box
+}
+*::before,*::after{
+    box-sizing: border-box
+}
+ul,ol{
+    list-style:none;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 100vh;
+}
+
+.fdiv{
+    position: absolute;
+    margin-left: -30px;
+    right: 10px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b8b8b8;
+}
+.spiltLine{
+    padding: 0 10px;
+}
+.suggestion{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid;
+    border-bottom: 1px #ccc solid;
+    width: 540px;
+    display: none;
+}
+.suggestion.active{
+    display: block;
+}
+.suggestion>li{
+    padding: 2px 4px;
+
+}
+.inputwrap{
+    float: left;
+    position: relative;
+}
+.inputwrap + button{
+    float: left;
+}
+.inputwrap input[type=text]{
+    border:1px solid #b8b8b8;
+    width: 540px;
+    height: 35px;
+    padding-left:8px; 
+    font-size: 15px;
+    line-height: 15px;
+}
+.inputwrap input[type=text]:focus{
+    outline: none;
+    border-color: #4b94fc;
+}
+
+.icon {
+       width: 1em; height: 1em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+}
+.inputwrap svg.icon{
+    width: 20px;
+    height: 20px;
+    fill: #b8b8b8;
+}
+.inputwrap svg.icon:hover{
+    fill: #4b94fc;
+    cursor: pointer;
+}
+.inputwrap + button{
+    background: #3988FB;
+    border: none;
+    font-size: 16px;
+    color:white;
+    padding: 0 20px;
+}
+.inputwrap + button:focus{
+    outline: none;
+}
+.inputwrap + button:hover{
+    box-shadow:1px 1px 0 0  rgba(0,0,0,0.5);
+    background: #3781F0;
+}
+.wrap{
+    display: flex;
+    position: relative;
+}
