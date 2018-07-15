@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>flex练习2</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+
+    }
+
+    .wrapper {
+      width: 750px;
+      margin: 20px auto;
+      border: 1px red solid;
+
+    }
+
+    ul>li {
+      background: #ddd;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 180px;
+      text-align: center;
+    }
+
+  .wrapper>ul{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+
+   
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+
+</html>
